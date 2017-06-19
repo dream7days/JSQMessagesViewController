@@ -715,7 +715,7 @@
 
 #pragma mark - JSQMessagesViewAccessoryDelegate methods
 
-- (void)messageView:(JSQMessagesCollectionView *)view didTapAccessoryButtonAtIndexPath:(NSIndexPath *)path
+- (void)messageView:(JSQMessagesCollectionView *)messageView didTapAccessoryButtonAtIndexPath:(NSIndexPath *)path
 {
     NSLog(@"Tapped accessory button!");
 }

@@ -47,7 +47,7 @@
     
     return newImage;
 }
-
+//获取图片
 + (UIImage *)jsq_bubbleImageFromBundleWithName:(NSString *)name
 {
     NSBundle *bundle = [NSBundle jsq_messagesAssetBundle];
