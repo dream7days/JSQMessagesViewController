@@ -105,19 +105,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns the label that is pinned to the top of the cell.
  *  This label is most commonly used to display message timestamps.
  */
-@property (weak, nonatomic, readonly, nullable) JSQMessagesLabel *cellTopLabel;
+@property (weak, nonatomic, readonly, nullable) JSQMessagesLabel *cellTopLabel;//展示时间戳
 
 /**
  *  Returns the label that is pinned just above the messageBubbleImageView, and below the cellTopLabel.
  *  This label is most commonly used to display the message sender.
  */
-@property (weak, nonatomic, readonly, nullable) JSQMessagesLabel *messageBubbleTopLabel;
+@property (weak, nonatomic, readonly, nullable) JSQMessagesLabel *messageBubbleTopLabel;//一般用来展示mesasge sender
 
 /**
  *  Returns the label that is pinned to the bottom of the cell.
  *  This label is most commonly used to display message delivery status.
  */
-@property (weak, nonatomic, readonly, nullable) JSQMessagesLabel *cellBottomLabel;
+@property (weak, nonatomic, readonly, nullable) JSQMessagesLabel *cellBottomLabel;//一般用来展示发送状态
 
 /**
  *  Returns the text view of the cell. This text view contains the message body text.
@@ -144,7 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  its frame, nor should you remove this view from the cell or remove any of its subviews.
  *  Doing so could result in unexpected behavior.
  */
-@property (weak, nonatomic, readonly, nullable) UIView *messageBubbleContainerView;
+@property (weak, nonatomic, readonly, nullable) UIView *messageBubbleContainerView;//messageBubbleImageView 以及 textView 的父控件
 
 /**
  *  Returns the avatar image view of the cell that is responsible for displaying avatar images.
@@ -161,7 +161,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  its frame, nor should you remove this view from the cell or remove any of its subviews.
  *  Doing so could result in unexpected behavior.
  */
-@property (weak, nonatomic, readonly, nullable) UIView *avatarContainerView;
+@property (weak, nonatomic, readonly, nullable) UIView *avatarContainerView;//头像的containerView
 
 /**
  *  Returns the accessory button of the cell.

@@ -52,17 +52,17 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
 
 @implementation JSQMessagesCollectionViewFlowLayout
 
-@dynamic collectionView;
+@dynamic collectionView;//自动生成setter & getter方法
 
-@synthesize bubbleSizeCalculator = _bubbleSizeCalculator;
+@synthesize bubbleSizeCalculator = _bubbleSizeCalculator;//setter  gettter 方法重写后需要这个方法提供属性
 
 #pragma mark - Initialization
 
 - (void)jsq_configureFlowLayout
 {
-    self.scrollDirection = UICollectionViewScrollDirectionVertical;
-    self.sectionInset = UIEdgeInsetsMake(10.0f, 4.0f, 10.0f, 4.0f);
-    self.minimumLineSpacing = 4.0f;
+    self.scrollDirection = UICollectionViewScrollDirectionVertical;//滚动方向
+    self.sectionInset = UIEdgeInsetsMake(10.0f, 4.0f, 10.0f, 4.0f);//item间距
+    self.minimumLineSpacing = 4.0f;//最小行间距
     
     _messageBubbleFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     
@@ -83,11 +83,12 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
     _springinessEnabled = NO;
     _springResistanceFactor = 1000;
     
+    //内存警告时通知
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(jsq_didReceiveApplicationMemoryWarningNotification:)
                                                  name:UIApplicationDidReceiveMemoryWarningNotification
                                                object:nil];
-    
+    //屏幕方向改变
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(jsq_didReceiveDeviceOrientationDidChangeNotification:)
                                                  name:UIDeviceOrientationDidChangeNotification

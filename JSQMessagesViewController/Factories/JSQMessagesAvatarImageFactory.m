@@ -145,7 +145,7 @@
 
     return [self jsq_circularImage:image withHighlightedColor:nil];
 }
-
+//已读
 - (UIImage *)jsq_circularImage:(UIImage *)image withHighlightedColor:(UIColor *)highlightedColor
 {
     NSParameterAssert(image != nil);

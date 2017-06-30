@@ -46,6 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @see JSQMessagesCollectionViewCell.
  */
+//返回CellTopLabel 的高度
 - (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView
                    layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath;
 
@@ -60,6 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @see JSQMessagesCollectionViewCell.
  */
+//返回MessageBubbleTopLabel高度
 - (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView
                    layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForMessageBubbleTopLabelAtIndexPath:(NSIndexPath *)indexPath;
 
@@ -74,6 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @see JSQMessagesCollectionViewCell.
  */
+//返回CellBottomLabel高度
 - (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView
                    layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForCellBottomLabelAtIndexPath:(NSIndexPath *)indexPath;
 
@@ -84,6 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param avatarImageView The avatar image view that was tapped.
  *  @param indexPath       The index path of the item for which the avatar was tapped.
  */
+//点击图像
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapAvatarImageView:(UIImageView *)avatarImageView atIndexPath:(NSIndexPath *)indexPath;
 
 /**
@@ -92,6 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param collectionView The collection view object that is notifying the delegate of the tap event.
  *  @param indexPath      The index path of the item for which the message bubble was tapped.
  */
+//点击气泡
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapMessageBubbleAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
@@ -108,6 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @see `collectionView:didTapAvatarImageView:atIndexPath:`
  *  @see `collectionView:didTapMessageBubbleAtIndexPath:atIndexPath:`
  */
+//点击cell(点击图像 气泡时候是不会调用 点击图像,点击气泡 的代理方法的)
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapCellAtIndexPath:(NSIndexPath *)indexPath touchLocation:(CGPoint)touchLocation;
 
 /**
@@ -117,6 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param headerView     The header view in the collection view.
  *  @param sender         The button that was tapped.
  */
+//点击LoadEarlierMessagesButton
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView
                 header:(JSQMessagesLoadEarlierHeaderView *)headerView didTapLoadEarlierMessagesButton:(UIButton *)sender;
 

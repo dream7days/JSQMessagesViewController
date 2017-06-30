@@ -80,6 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return An initialized `JSQMessage` object.
  */
+//文本message
 + (instancetype)messageWithSenderId:(NSString *)senderId
                         displayName:(NSString *)displayName
                                text:(NSString *)text;
@@ -96,6 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return An initialized `JSQMessage` object.
  */
+///文本message(有date)
 - (instancetype)initWithSenderId:(NSString *)senderId
                senderDisplayName:(NSString *)senderDisplayName
                             date:(NSDate *)date
@@ -112,6 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return An initialized `JSQMessage` object.
  */
+//mediaMessage
 + (instancetype)messageWithSenderId:(NSString *)senderId
                         displayName:(NSString *)displayName
                               media:(id<JSQMessageMediaData>)media;
@@ -128,6 +131,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return An initialized `JSQMessage` object.
  */
+//mediaMessage(有date)
 - (instancetype)initWithSenderId:(NSString *)senderId
                senderDisplayName:(NSString *)senderDisplayName
                             date:(NSDate *)date

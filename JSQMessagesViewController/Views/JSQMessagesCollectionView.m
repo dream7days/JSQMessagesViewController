@@ -96,7 +96,7 @@ forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
 }
 
 #pragma mark - Typing indicator
-
+//incoming消息指示器
 - (JSQMessagesTypingIndicatorFooterView *)dequeueTypingIndicatorFooterViewForIndexPath:(NSIndexPath *)indexPath
 {
     JSQMessagesTypingIndicatorFooterView *footerView = [super dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
@@ -170,7 +170,7 @@ forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
             didTapCellAtIndexPath:indexPath
                     touchLocation:position];
 }
-
+//点击customAction
 - (void)messagesCollectionViewCell:(JSQMessagesCollectionViewCell *)cell didPerformAction:(SEL)action withSender:(id)sender
 {
     NSIndexPath *indexPath = [self indexPathForCell:cell];

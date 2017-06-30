@@ -65,6 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly, nonatomic) JSQMessagesCollectionView *collectionView;
 #pragma clang diagnostic pop
 
+
 /**
  *  The object that the layout uses to calculate bubble sizes.
  *  The default value is an instance of `JSQMessagesBubblesSizeCalculator`.
@@ -89,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @discussion The default value is `1000`. Increasing this value increases the resistance, that is, items become less "bouncy". 
  *  Decrease this value in order to make items more "bouncy".
  */
-@property (assign, nonatomic) NSUInteger springResistanceFactor;
+@property (assign, nonatomic) NSUInteger springResistanceFactor;//弹性阻尼数 默认1000,没有弹性效果
 
 /**
  *  Returns the width of items in the layout.
@@ -124,7 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @see JSQMessagesCollectionViewCellIncoming.
  *  @see JSQMessagesCollectionViewCellOutgoing.
  */
-@property (assign, nonatomic) CGFloat messageBubbleLeftRightMargin;
+@property (assign, nonatomic) CGFloat messageBubbleLeftRightMargin;//气泡左右间距
 
 /**
  *  The inset of the frame of the text view within the `messageBubbleContainerView` of each `JSQMessagesCollectionViewCell`.
@@ -185,7 +186,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @discussion The default value is `200`. A limit of `0` means no limit. This is not a strict limit.
  */
-@property (assign, nonatomic) NSUInteger cacheLimit;
+@property (assign, nonatomic) NSUInteger cacheLimit;//The default value is `200`.
 
 /**
  *  Computes and returns the size of the `messageBubbleImageView` property of a `JSQMessagesCollectionViewCell`

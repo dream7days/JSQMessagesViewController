@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Specify `YES` for an outgoing mask, and `NO` for an incoming mask.
  *  The default value is `YES`.
  */
-@property (assign, nonatomic) BOOL appliesMediaViewMaskAsOutgoing;
+@property (assign, nonatomic) BOOL appliesMediaViewMaskAsOutgoing;//是否是outGoing
 
 /**
  *  Initializes and returns a media item with the specified value for maskAsOutgoing.

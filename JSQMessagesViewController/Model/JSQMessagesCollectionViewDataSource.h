@@ -61,6 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return An initialized object that conforms to the `JSQMessageData` protocol. You must not return `nil` from this method.
  */
+//消息数据
 - (id<JSQMessageData>)collectionView:(JSQMessagesCollectionView *)collectionView messageDataForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
@@ -70,6 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param collectionView The collection view requesting this information.
  *  @param indexPath      The index path that specifies the location of the item.
  */
+//删除message
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didDeleteMessageAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
@@ -90,6 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @see JSQMessagesBubbleImageFactory.
  *  @see JSQMessagesCollectionViewFlowLayout.
  */
+//返回气泡
 - (nullable id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
@@ -107,6 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @see JSQMessagesAvatarImageFactory.
  *  @see JSQMessagesCollectionViewFlowLayout.
  */
+//返回图像
 - (nullable id<JSQMessageAvatarImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView avatarImageDataForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
@@ -123,6 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @see JSQMessagesCollectionViewCell.
  */
+//返回CellTopLabel的文字
 - (nullable NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
@@ -137,6 +142,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @see JSQMessagesCollectionViewCell.
  */
+//返回BubbleTopLabel文字
 - (nullable NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForMessageBubbleTopLabelAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
@@ -151,6 +157,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @see JSQMessagesCollectionViewCell.
  */
+//返回CellBottomLabel文字
 - (nullable NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellBottomLabelAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

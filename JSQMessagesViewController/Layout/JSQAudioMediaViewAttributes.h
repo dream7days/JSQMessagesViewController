@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Specifies whether to show fractions of a second for audio files with a duration of less than 1 minute.
  */
-@property (nonatomic, assign) BOOL showFractionalSeconds;
+@property (nonatomic, assign) BOOL showFractionalSeconds;//是否展示audio文件的秒数
 
 /**
  *  The background color for the player.

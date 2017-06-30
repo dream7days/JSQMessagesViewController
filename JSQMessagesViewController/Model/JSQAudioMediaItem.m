@@ -47,7 +47,7 @@
 - (instancetype)initWithData:(NSData *)audioData audioViewAttributes:(JSQAudioMediaViewAttributes *)audioViewAttributes
 {
     NSParameterAssert(audioViewAttributes != nil);
-
+    
     self = [super init];
     if (self) {
         _cachedMediaView = nil;
@@ -56,12 +56,12 @@
     }
     return self;
 }
-
+//使用默认的JSQAudioMediaViewAttributes初始化
 - (instancetype)initWithData:(NSData *)audioData
 {
     return [self initWithData:audioData audioViewAttributes:[[JSQAudioMediaViewAttributes alloc] init]];
 }
-
+//从网络下载,audioData可以初始化为nil
 - (instancetype)initWithAudioViewAttributes:(JSQAudioMediaViewAttributes *)audioViewAttributes
 {
     return [self initWithData:nil audioViewAttributes:audioViewAttributes];
@@ -86,6 +86,7 @@
     _playButton = nil;
     _progressView = nil;
     _progressLabel = nil;
+    //销毁定时器
     [self stopProgressTimer];
 
     _cachedMediaView = nil;
@@ -215,7 +216,7 @@
 }
 
 #pragma mark - JSQMessageMediaData protocol
-
+//展示的尺寸
 - (CGSize)mediaViewDisplaySize
 {
     return CGSizeMake(160.0f,
