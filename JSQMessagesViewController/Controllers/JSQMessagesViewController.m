@@ -136,6 +136,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
                                           bundle:[NSBundle bundleForClass:[JSQMessagesViewController class]]];
 }
 
+//第一次使用该类时设置
 + (void)initialize {
     [super initialize];
     if (self == [JSQMessagesViewController self]) {
@@ -177,7 +178,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
     self.showLoadEarlierMessagesHeader = NO;
 
     self.additionalContentInset = UIEdgeInsetsZero;
-
+     //更新collectionView的contentInset
     [self jsq_updateCollectionViewInsets];
 }
 
@@ -228,7 +229,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+   
     [[[self class] nib] instantiateWithOwner:self options:nil];
 
     [self jsq_configureMessagesViewController];
@@ -272,10 +273,11 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
 {
     return YES;
 }
-
+//支持屏幕方向
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        //UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight
         return UIInterfaceOrientationMaskAllButUpsideDown;
     }
     return UIInterfaceOrientationMaskAll;
@@ -329,7 +331,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
 {
     NSAssert(NO, @"Error! required method not implemented in subclass. Need to implement %s", __PRETTY_FUNCTION__);
 }
-
+//默认结束发送有动画
 - (void)finishSendingMessage
 {
     [self finishSendingMessageAnimated:YES];
@@ -350,7 +352,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
         [self scrollToBottomAnimated:animated];
     }
 }
-
+//结束发送message默认有动画
 - (void)finishReceivingMessage
 {
     [self finishReceivingMessageAnimated:YES];
@@ -369,7 +371,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
 
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, [NSBundle jsq_localizedStringForKey:@"new_message_received_accessibility_announcement"]);
 }
-
+//滚动至最底部
 - (void)scrollToBottomAnimated:(BOOL)animated
 {
     if ([self.collectionView numberOfSections] == 0) {
@@ -421,7 +423,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
                                 atScrollPosition:scrollPosition
                                         animated:animated];
 }
-
+//判断是否是outgoingMessage
 - (BOOL)isOutgoingMessage:(id<JSQMessageData>)messageItem
 {
     NSString *messageSenderId = [messageItem senderId];
@@ -524,7 +526,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
     }
     else {
         id<JSQMessageMediaData> messageMedia = [messageItem media];
-        cell.mediaView = [messageMedia mediaView] ?: [messageMedia mediaPlaceholderView];
+        cell.mediaView = [messageMedia mediaView] ?: [messageMedia mediaPlaceholderView];//三目运算简易写法
         NSParameterAssert(cell.mediaView != nil);
     }
 
@@ -565,7 +567,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
     else {
         cell.messageBubbleTopLabel.textInsets = UIEdgeInsetsMake(0.0f, bubbleTopLabelInset, 0.0f, 0.0f);
     }
-
+    //cell里面的textView
     cell.textView.dataDetectorTypes = UIDataDetectorTypeAll;
 
     cell.backgroundColor = [UIColor clearColor];
@@ -593,7 +595,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
                                    [messageItem senderDisplayName]];
     }
 }
-
+//UICollectionReusableView
 - (UICollectionReusableView *)collectionView:(JSQMessagesCollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath
@@ -629,10 +631,11 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
 }
 
 #pragma mark - Collection view delegate
-
+//ShowMenu
 - (BOOL)collectionView:(JSQMessagesCollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     //  disable menu for media messages
+    //media messages中 语音 视频 不允许showMenu
     id<JSQMessageData> messageItem = [collectionView.dataSource collectionView:collectionView messageDataForItemAtIndexPath:indexPath];
     if ([messageItem isMediaMessage]) {
 
@@ -641,7 +644,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
         }
         return NO;
     }
-
+    //记录选中的indexPath
     self.selectedIndexPathForMenu = indexPath;
 
     //  textviews are selectable to allow data detectors

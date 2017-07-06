@@ -30,7 +30,9 @@ const CGFloat kJSQMessagesTypingIndicatorFooterViewHeight = 46.0f;
 @interface JSQMessagesTypingIndicatorFooterView ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *bubbleImageView;
+//气泡图片距离右边距离约束
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bubbleImageViewRightHorizontalConstraint;
+//加载view
 @property (weak, nonatomic) IBOutlet JSQMessagesTypingView *typingView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *typingIndicatorImageViewRightHorizontalConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *typingIndicatorToBubbleImageAlignConstraint;

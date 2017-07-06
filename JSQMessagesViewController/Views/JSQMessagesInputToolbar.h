@@ -75,7 +75,7 @@ typedef NS_ENUM(NSUInteger, JSQMessagesInputSendButtonLocation) {
 /**
  *  Returns the content view of the toolbar. This view contains all subviews of the toolbar.
  */
-@property (weak, nonatomic, readonly, nullable) JSQMessagesToolbarContentView *contentView;
+@property (weak, nonatomic, readonly, nullable) JSQMessagesToolbarContentView *contentView;//包含toolBar里面所有的子控件
 
 /**
  *  Indicates the location of the send button in the toolbar.

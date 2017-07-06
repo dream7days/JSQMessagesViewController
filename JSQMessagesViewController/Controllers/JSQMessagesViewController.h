@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @discussion The default value is `YES`, which allows the view controller to scroll automatically to the most recent message.
  *  Set to `NO` if you want to manage scrolling yourself.
  */
-@property (assign, nonatomic) BOOL automaticallyScrollsToMostRecentMessage;
+@property (assign, nonatomic) BOOL automaticallyScrollsToMostRecentMessage;//是否滚动到最底部
 
 /**
  *  The collection view cell identifier to use for dequeuing outgoing message collection view cells 
@@ -134,7 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Setting this property to `NO` will animate hiding the typing indicator immediately. You will need to scroll
  *  to the bottom of the collection view in order to see the typing indicator. You may use `scrollToBottomAnimated:` for this.
  */
-@property (assign, nonatomic) BOOL showTypingIndicator;
+@property (assign, nonatomic) BOOL showTypingIndicator;//是否为incoming message展示加载中..
 
 /**
  *  Specifies whether or not the view controller should show the "load earlier messages" header view.
@@ -143,7 +143,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Settings this property to `NO` will hide the header view immediately. You will need to scroll to
  *  the top of the collection view in order to see the header.
  */
-@property (assign, nonatomic) BOOL showLoadEarlierMessagesHeader;
+@property (assign, nonatomic) BOOL showLoadEarlierMessagesHeader;//是否展示加载更早信息
 
 /**
  *  Specifies an additional inset amount to be added to the collectionView's `contentInset` and `scrollIndicatorInsets` value.
@@ -151,7 +151,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @discussion Use this property to adjust the insets to account for a custom subview in your view controller.
  */
-@property (assign, nonatomic) UIEdgeInsets additionalContentInset;
+@property (assign, nonatomic) UIEdgeInsets additionalContentInset;//内间距
 
 #pragma mark - Class methods
 
@@ -187,6 +187,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param senderDisplayName The message sender display name.
  *  @param date              The message date.
  */
+//点击发送按钮
 - (void)didPressSendButton:(UIButton *)button
            withMessageText:(NSString *)text
                   senderId:(NSString *)senderId
@@ -198,6 +199,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param sender The accessory button that was pressed by the user.
  */
+//点击accessory按钮
 - (void)didPressAccessoryButton:(UIButton *)sender;
 
 /**
