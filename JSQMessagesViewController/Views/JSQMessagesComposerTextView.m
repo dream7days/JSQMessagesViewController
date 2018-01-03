@@ -31,7 +31,8 @@
 @end
 
 @implementation JSQMessagesComposerTextView
-
+//当你在子类中重载了父类中的属性，你必须 使用@synthesize来手动合成ivar。
+@synthesize pasteDelegate = _pasteDelegate;
 #pragma mark - Initialization
 
 - (void)jsq_configureTextView
